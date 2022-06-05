@@ -1,17 +1,35 @@
 import React, { Component } from "react";
+import Letter from "./Letter"
 class Solution extends Component {
-    render() {
-        let arr = []
-        for (let i = 0; i < 4; i++) {
-            arr.push("_ ")
+    constructor() {
+        super()
+        this.count = {
+            count: 0
         }
+    }
+    renderSolution() {
+        return this.props.renderSolution();
+    }
+    render() {
+
         return (
             <div>
-                <div>{arr}</div>
-                <div>Your ideal moon when coding</div>
+                {this.renderSolution()}
+                <div>{this.props.hint}</div>
             </div>
         )
     }
 }
 
 export default Solution;
+
+
+
+{/* <div>
+    {this.props.showSolution === true ?
+        (this.props.solution.word.split('').map(w => <Letter letter={w} key={w} />))
+        : (this.props.solution.word.split('').map(w => <Letter letter={"_ "} key={this.count.count++} />))
+    }
+
+    <div>{this.props.solution.hint}</div>
+</div> */}
